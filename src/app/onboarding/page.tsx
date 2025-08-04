@@ -73,62 +73,77 @@ export default function OnboardingPage() {
 
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 bg-white p-6 rounded-2xl shadow-sm border hover:shadow-md transition-shadow animate-in fade-in slide-in-from-bottom-2 duration-500"
+        className="space-y-6 bg-white p-8 rounded-2xl shadow-sm border hover:shadow-md transition-shadow animate-in fade-in slide-in-from-bottom-2 duration-500"
       >
         <div className="space-y-2">
-          <Label htmlFor="vendorName">Business Name</Label>
+          <Label htmlFor="vendorName" className="text-sm font-medium">
+            Business Name
+          </Label>
           <Input
             id="vendorName"
             value={vendorName}
             onChange={(e) => setVendorName(e.target.value)}
             placeholder="Zara Kitchen"
-            className="text-base h-10"
+            className="text-base h-10 mt-1"
             required
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="slug">Store Link (Slug)</Label>
+          <Label htmlFor="slug" className="text-sm font-medium">
+            Store Link (Slug)
+          </Label>
           <Input
             id="slug"
             value={slug}
             onChange={(e) => setSlug(e.target.value)}
             placeholder="zara-kitchen"
-            className="text-base h-10"
+            className="text-base h-10 mt-1"
             required
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="bio">Short Bio</Label>
+          <Label htmlFor="bio" className="text-sm font-medium">
+            Short Bio
+          </Label>
           <Textarea
             id="bio"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             placeholder="We make delicious local meals fresh every day."
-            className="text-base"
+            className="text-base mt-1"
           />
         </div>
 
+        {/* Social Links Grouping */}
+        <h2 className="text-sm font-medium text-muted-foreground mt-6">
+          Social Links
+        </h2>
+
         <div className="space-y-2">
-          <Label htmlFor="whatsapp">WhatsApp Link</Label>
+          <Label htmlFor="whatsapp" className="text-sm font-medium">
+            WhatsApp Link
+          </Label>
           <Input
             id="whatsapp"
             value={whatsappUrl}
             onChange={(e) => setWhatsappUrl(e.target.value)}
-            placeholder="https://wa.me/234..."
-            className="text-base h-10"
+            placeholder="https://wa.me/234XXXXXXXXXX"
+            className="text-base h-10 mt-1"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="instagram">Instagram Handle</Label>
+          <Label htmlFor="instagram" className="text-sm font-medium">
+            Instagram Handle
+          </Label>
           <Input
             id="instagram"
             value={instagramHandle}
             onChange={(e) => setInstagramHandle(e.target.value)}
-            placeholder="@zarakitchen"
-            className="text-base h-10"
+            placeholder="@yourhandle"
+            className="text-base h-10 mt-1"
           />
         </div>
 
@@ -137,7 +152,7 @@ export default function OnboardingPage() {
           className="w-full hover:brightness-110 transition"
           disabled={loading}
         >
-          {loading ? "Saving..." : "Save Profile"}
+          {loading ? "Creating..." : "Create My ShopLink"}
         </Button>
       </form>
     </main>

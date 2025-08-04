@@ -47,12 +47,10 @@ export default function AuthPage() {
   return (
     <main className="min-h-screen bg-gray-50 max-w-md w-full mx-auto px-4 py-8">
       <h1 className="text-2xl font-semibold mb-2">
-        {isLogin ? "Welcome Back 👋" : "Create Your ShopLink Account 🚀"}
+        {isLogin ? "Log In" : "Sign Up"}
       </h1>
       <p className="text-sm text-muted-foreground mb-6">
-        {isLogin
-          ? "Enter your credentials to access your store."
-          : "Sign up with your email to start creating your store link."}
+        Access your dashboard and manage your store.
       </p>
 
       {error && (
@@ -63,31 +61,35 @@ export default function AuthPage() {
 
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 bg-white p-6 rounded-2xl shadow-sm border hover:shadow-md transition-shadow animate-in fade-in slide-in-from-bottom-2 duration-500"
+        className="space-y-6 bg-white p-8 rounded-2xl shadow-sm border hover:shadow-md transition-shadow animate-in fade-in slide-in-from-bottom-2 duration-500"
       >
         <div className="space-y-2">
-          <Label htmlFor="email">Email Address</Label>
+          <Label htmlFor="email" className="text-sm font-medium">
+            Email
+          </Label>
           <Input
             id="email"
             type="email"
             placeholder="you@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="text-base h-10 mt-1"
             required
-            className="text-base h-10"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password" className="text-sm font-medium">
+            Password
+          </Label>
           <Input
             id="password"
             type="password"
             placeholder="••••••••"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="text-base h-10 mt-1"
             required
-            className="text-base h-10"
           />
         </div>
 
@@ -96,12 +98,11 @@ export default function AuthPage() {
           className="w-full hover:brightness-110 transition"
           disabled={loading}
         >
-          {loading ? "Please wait..." : isLogin ? "Log In" : "Sign Up"}
+          {loading ? "Please wait..." : isLogin ? "Log In" : "Create Account"}
         </Button>
       </form>
 
       <button
-        type="button"
         className="mt-4 text-sm text-emerald-600 underline"
         onClick={() => setIsLogin(!isLogin)}
       >
